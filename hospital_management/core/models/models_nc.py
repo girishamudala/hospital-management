@@ -1,15 +1,15 @@
 from django.db import models
 
 
-class Departmnet=(models.Model):
-    id=models.IntegerField(null=True)
+class Department(models.Model):
+    #id=models.IntegerField(null=True)
     name=models.CharField(max_length=100)
     
     def __str__(self):
         return self.name
 
 
-class Doctor=(models.Model):
+class Doctor(models.Model):
     id=models.IntegerField(null=True)
     name=models.CharField(max_length=100)
     experiance=models.IntegerField(null=True)
