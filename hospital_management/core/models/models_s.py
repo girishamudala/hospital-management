@@ -1,4 +1,5 @@
 from django.db import models
+from core.models.models_nc import Doctor
 
 # Create your models here.
 
@@ -7,7 +8,7 @@ class Op(models.Model):
     o_date= models.DateTimeField()
     o_pname= models.CharField(max_length=50)
     symptoms= models.CharField(max_length=50)
-    doctor_assign= models.CharField(max_length=50)
+    doctor_assign= models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.o_pname +" "+str(self.o_id)

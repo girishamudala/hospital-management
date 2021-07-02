@@ -34,7 +34,8 @@ class Single_patientdetailsview(APIView):
         return Response(patserializerobj.data, status=status.HTTP_200_OK)
 
     def put(self,request,pk):
-        patobj = Patient.objects.get(pk)
+        patobj = Patient.objects.get(pk=pk)
+        """if we didnt given pk =pk it shows cannot unpack non-iterable int object"""
         patserializerobj = Patientserializer(patobj, data = request.data)
         if patserializerobj.is_valid():
             patserializerobj.save()
@@ -42,9 +43,8 @@ class Single_patientdetailsview(APIView):
         return Response('enter valid patient attributes', status=status.HTTP_205_RESET_CONTENT)
     
     def delete(self,request,pk):
-        patobj = Patient.objects.get(pk)
-        patserializerobj = Patientserializer(patobj)
-        patserializerobj.delete()
+        patobj = Patient.objects.get(pk=pk)
+        patobj.delete()
         return Response('removed data from database successfully', status=status.HTTP_204_NO_CONTENT)
 
 
