@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from core.views.views_s import Patientcreate , Single_patientdetailsview
+# from core.views.views_s import Patientview, Patientcreate
+# Patientview
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('patdetails/', Patientview.as_view()),
+    # path('opdetails/', Opdetails.as_view()),
+    path('patdetails/', Patientcreate.as_view()),
+    path('singlepatdetails/<int:pk>/', Single_patientdetailsview.as_view()),
 ]
