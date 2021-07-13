@@ -10,7 +10,7 @@ class Department(models.Model):
 
 
 class Doctor(models.Model):
-    id=models.IntegerField(null=True)
+    d_id=models.IntegerField(null=True)
     name=models.CharField(max_length=100)
     experiance=models.IntegerField(null=True)
     specialization=models.CharField(max_length=100)
